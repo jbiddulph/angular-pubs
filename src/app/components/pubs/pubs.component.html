@@ -1,0 +1,45 @@
+<section id="pubtowns" class="bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h2>Select a town</h2>
+        <div class="towns-list">
+          <div *ngFor="let town of townsList; let i = index;">
+            <button class="btn btn-info" (click)="townClicked(town.rstown)">{{town.rstown}}</button>
+          </div>
+        </div>
+        <p class="lead">I see myself as an all-rounder developer, my main skillset is front-end development. Although I do enjoy working on backend projects too and learning new ways of coding.</p>
+        <p class="lead">I have experience in the design and print industry and therefore have a great eye for detail.</p>
+        <p class="lead">My code is clean and I like to be fully tested and validated aswell as building designs to the pixel.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="pubs" class="bg-info text-white">
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+          <h2>Pubs in {{this.pubService.selectedTown}}</h2>
+          <ng-masonry-grid
+          [masonryOptions]="{ transitionDuration: '0.8s', gutter: 12 }" 
+          [useAnimation]="true"
+          [useImagesLoaded]="true"
+          [scrollAnimationOptions]="{ animationEffect: 'effect-4', minDuration : 0.4, maxDuration : 0.7 }">
+          <!-- Masonry Grid Item -->
+          <ng-masonry-grid-item id="{{'masonry-item-'+i}}" *ngFor="let pub of pubsList; let i = index;" (click)="removeItem($event)"> 
+            <!-- Grid Content  -->
+            <div class="card bg-light text-dark" style="width:264px;">
+              <img class="card-img-top" src="http://www.ukpubs.co.uk/images/{{pub.img1}}" alt="{{pub.rsPubName}}">
+              <div class="card-body">
+              <h5 class="card-title">{{pub.rsPubName}}</h5>
+              <p class="card-text">{{pub.rsAddress}}, {{pub.rsTown}}</p>
+              <a href="#?PUBID={{pub.PUBID}}" target="_blank" title="{{pub.rsPubName}}" class="btn btn-danger">{{pub.rsPubName}}</a>
+            </div>
+
+            </div>
+          </ng-masonry-grid-item>
+        </ng-masonry-grid>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,19 @@
+.bg-light {
+    background-color: #f8f9fa!important;
+}
+
+section {
+    padding: 150px 0;
+}
+.towns-list {
+    div {
+        display: inline-flex;
+        flex-wrap: nowrap;
+        margin: 2px;
+        justify-content: center;
+        button {
+            font-size: 11px;
+            padding:4px 8px;
+        }
+    }
+}
